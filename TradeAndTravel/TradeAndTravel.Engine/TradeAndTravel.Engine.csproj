@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contants.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\LocationType.cs" />
+    <Compile Include="InteractionManager.cs" />
     <Compile Include="Interfaces\IGatheringLocation.cs" />
     <Compile Include="Interfaces\IShopkeeper.cs" />
     <Compile Include="Interfaces\ITraveler.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Models\Locations\Town.cs" />
     <Compile Include="Models\People\Person.cs" />
     <Compile Include="Models\People\Shopkeeper.cs" />
+    <Compile Include="Models\People\Traveler.cs" />
     <Compile Include="Models\WorldObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,8 +14,7 @@ namespace TradeAndTravel.Engine.Models.Items
 
         public override void UpdateWithInteraction(string interaction)
         {
-            // TODO: extract
-            if (interaction == "drop")
+            if (interaction == Contants.DropAction)
             {
                 if (this.Value > 0)
                 {
