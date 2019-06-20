@@ -58,6 +58,8 @@
     <Compile Include="Models\Locations\Location.cs" />
     <Compile Include="Models\Locations\Mine.cs" />
     <Compile Include="Models\Locations\Town.cs" />
+    <Compile Include="Models\People\Person.cs" />
+    <Compile Include="Models\People\Shopkeeper.cs" />
     <Compile Include="Models\WorldObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
