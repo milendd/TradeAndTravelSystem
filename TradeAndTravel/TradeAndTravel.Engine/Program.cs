@@ -6,9 +6,11 @@ namespace TradeAndTravel.Engine
     {
         public static void Main()
         {
-            var engine = new Engine(new AdvancedInteractionManager());
+            var manager = new AdvancedInteractionManager();
+            var engine = new Engine(manager);
             var interactionResults = engine.Start();
-            Console.WriteLine(interactionResults);
+            var result = string.Join(Environment.NewLine, interactionResults);
+            Console.WriteLine(result);
         }
     }
 }

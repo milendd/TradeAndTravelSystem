@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TradeAndTravel.Engine
 {
@@ -16,7 +17,7 @@ namespace TradeAndTravel.Engine
             this.interactionManager.HandleInteraction(command.Split(' '));
         }
 
-        public string Start()
+        public string[] Start()
         {
             bool endCommandReached = false;
             while (!endCommandReached)
@@ -30,6 +31,16 @@ namespace TradeAndTravel.Engine
                 {
                     this.ParseAndDispatch(command);
                 }
+            }
+
+            return this.interactionManager.GetInteractionResults();
+        }
+
+        public string[] Start(string[] commands)
+        {
+            foreach (var command in commands)
+            {
+                this.ParseAndDispatch(command);
             }
 
             return this.interactionManager.GetInteractionResults();

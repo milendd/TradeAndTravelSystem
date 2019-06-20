@@ -9,7 +9,7 @@ namespace TradeAndTravel.Engine
 {
     public class InteractionManager
     {
-        protected StringBuilder commandResponse = new StringBuilder();
+        protected List<string> commandResponse = new List<string>();
         protected HashSet<Location> locations = new HashSet<Location>();
         protected HashSet<Person> people = new HashSet<Person>();
 
@@ -34,9 +34,9 @@ namespace TradeAndTravel.Engine
             }
         }
 
-        public string GetInteractionResults()
+        public string[] GetInteractionResults()
         {
-            return this.commandResponse.ToString();
+            return this.commandResponse.ToArray();
         }
 
         protected virtual void HandlePersonCommand(string[] commandWords, Person actor)
@@ -60,7 +60,7 @@ namespace TradeAndTravel.Engine
                     break;
                 case Contants.MoneyAction:
                     int money = moneyByPerson[actor];
-                    commandResponse.AppendLine(money.ToString());
+                    commandResponse.Add(money.ToString());
                     break;
                 case Contants.TravelAction:
                     HandleTravelInteraction(commandWords, actor);
@@ -95,14 +95,14 @@ namespace TradeAndTravel.Engine
             {
                 if (ownerByItem[item] == actor)
                 {
-                    commandResponse.AppendLine(item.Name);
+                    commandResponse.Add(item.Name);
                     item.UpdateWithInteraction(Contants.InventoryAction);
                 }
             }
 
             if (inventory.Count == 0)
             {
-                commandResponse.AppendLine(Contants.EmptyResult);
+                commandResponse.Add(Contants.EmptyResult);
             }
         }
 
