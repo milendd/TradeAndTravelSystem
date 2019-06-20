@@ -38,6 +38,96 @@ namespace TradeAndTravel.Tests
             CompareOutput(expectedOutput, output);
         }
 
+        [TestMethod]
+        public void TestInput2()
+        {
+            var input = ReadAllLines("test.002.in.txt");
+            var expectedOutput = ReadAllLines("test.002.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput3()
+        {
+            var input = ReadAllLines("test.003.in.txt");
+            var expectedOutput = ReadAllLines("test.003.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput4()
+        {
+            var input = ReadAllLines("test.004.in.txt");
+            var expectedOutput = ReadAllLines("test.004.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput5()
+        {
+            var input = ReadAllLines("test.005.in.txt");
+            var expectedOutput = ReadAllLines("test.005.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput6()
+        {
+            var input = ReadAllLines("test.006.in.txt");
+            var expectedOutput = ReadAllLines("test.006.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput7()
+        {
+            var input = ReadAllLines("test.007.in.txt");
+            var expectedOutput = ReadAllLines("test.007.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput8()
+        {
+            var input = ReadAllLines("test.008.in.txt");
+            var expectedOutput = ReadAllLines("test.008.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput9()
+        {
+            var input = ReadAllLines("test.009.in.txt");
+            var expectedOutput = ReadAllLines("test.009.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
+        [TestMethod]
+        public void TestInput10()
+        {
+            var input = ReadAllLines("test.010.in.txt");
+            var expectedOutput = ReadAllLines("test.010.out.txt");
+
+            var output = engine.Start(input);
+            CompareOutput(expectedOutput, output);
+        }
+
         private void CompareOutput(string[] expectedOutput, string[] output)
         {
             Assert.AreNotEqual(expectedOutput, null);

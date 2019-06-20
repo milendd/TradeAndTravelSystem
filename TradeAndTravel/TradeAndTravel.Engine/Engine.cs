@@ -40,6 +40,11 @@ namespace TradeAndTravel.Engine
         {
             foreach (var command in commands)
             {
+                if (command == Contants.EndCommand)
+                {
+                    break;
+                }
+
                 this.ParseAndDispatch(command);
             }
 
