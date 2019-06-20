@@ -205,29 +205,29 @@ namespace TradeAndTravel.Engine
         {
             if (commandWords[1] == Contants.ItemAction)
             {
-                string itemTypeString = commandWords[2];
-                string itemNameString = commandWords[3];
-                string itemLocationString = commandWords[4];
-                this.HandleItemCreation(itemTypeString, itemNameString, itemLocationString);
+                var itemType = commandWords[2];
+                var itemName = commandWords[3];
+                var itemLocation = commandWords[4];
+                this.HandleItemCreation(itemType, itemName, itemLocation);
             }
             else if (commandWords[1] == Contants.LocationAction)
             {
-                string locationTypeString = commandWords[2];
-                string locationNameString = commandWords[3];
-                this.HandleLocationCreation(locationTypeString, locationNameString);
+                var locationType = commandWords[2];
+                var locationName = commandWords[3];
+                this.HandleLocationCreation(locationType, locationName);
             }
             else
             {
-                string personTypeString = commandWords[1];
-                string personNameString = commandWords[2];
-                string personLocationString = commandWords[3];
-                this.HandlePersonCreation(personTypeString, personNameString, personLocationString);
+                var personType = commandWords[1];
+                var personName = commandWords[2];
+                var personLocation = commandWords[3];
+                this.HandlePersonCreation(personType, personName, personLocation);
             }
         }
 
-        protected virtual void HandleLocationCreation(string locationTypeString, string locationName)
+        protected virtual void HandleLocationCreation(string locationType, string locationName)
         {
-            Location location = CreateLocation(locationTypeString, locationName);
+            Location location = CreateLocation(locationType, locationName);
 
             locations.Add(location);
             strayItemsByLocation[location] = new List<Item>();
@@ -235,34 +235,34 @@ namespace TradeAndTravel.Engine
             locationByName[locationName] = location;
         }
 
-        protected virtual void HandlePersonCreation(string personTypeString, string personNameString, string personLocationString)
+        protected virtual void HandlePersonCreation(string personType, string personName, string personLocationText)
         {
-            var personLocation = locationByName[personLocationString];
+            var personLocation = locationByName[personLocationText];
 
-            Person person = CreatePerson(personTypeString, personNameString, personLocation);
+            Person person = CreatePerson(personType, personName, personLocation);
 
-            personByName[personNameString] = person;
+            personByName[personName] = person;
             peopleByLocation[personLocation].Add(person);
             moneyByPerson[person] = Contants.InitialPersonMoney;
         }
 
-        protected virtual void HandleItemCreation(string itemTypeString, string itemNameString, string itemLocationString)
+        protected virtual void HandleItemCreation(string itemType, string itemName, string itemLocationText)
         {
-            var itemLocation = locationByName[itemLocationString];
+            var itemLocation = locationByName[itemLocationText];
 
             Item item = null;
-            item = CreateItem(itemTypeString, itemNameString, itemLocation, item);
+            item = CreateItem(itemType, itemName, itemLocation, item);
 
             ownerByItem[item] = null;
             strayItemsByLocation[itemLocation].Add(item);
         }
 
-        protected virtual Item CreateItem(string itemTypeString, string itemNameString, Location itemLocation, Item item)
+        protected virtual Item CreateItem(string itemType, string itemName, Location itemLocation, Item item)
         {
-            switch (itemTypeString)
+            switch (itemType)
             {
                 case Contants.ArmorCreation:
-                    item = new Armor(itemNameString, itemLocation);
+                    item = new Armor(itemName, itemLocation);
                     break;
                 default:
                     break;
@@ -271,16 +271,16 @@ namespace TradeAndTravel.Engine
             return item;
         }
 
-        protected virtual Person CreatePerson(string personTypeString, string personNameString, Location personLocation)
+        protected virtual Person CreatePerson(string personType, string personName, Location personLocation)
         {
             Person person = null;
-            switch (personTypeString)
+            switch (personType)
             {
                 case Contants.ShopkeeperCreation:
-                    person = new Shopkeeper(personNameString, personLocation);
+                    person = new Shopkeeper(personName, personLocation);
                     break;
                 case Contants.TravelerCreation:
-                    person = new Traveler(personNameString, personLocation);
+                    person = new Traveler(personName, personLocation);
                     break;
                 default:
                     break;
@@ -289,10 +289,10 @@ namespace TradeAndTravel.Engine
             return person;
         }
 
-        protected virtual Location CreateLocation(string locationTypeString, string locationName)
+        protected virtual Location CreateLocation(string locationType, string locationName)
         {
             Location location = null;
-            switch (locationTypeString)
+            switch (locationType)
             {
                 case Contants.TownCreation:
                     location = new Town(locationName);

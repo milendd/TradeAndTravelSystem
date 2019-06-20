@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedInteractionManager.cs" />
     <Compile Include="Contants.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Enums\ItemType.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Models\Locations\Location.cs" />
     <Compile Include="Models\Locations\Mine.cs" />
     <Compile Include="Models\Locations\Town.cs" />
+    <Compile Include="Models\People\Merchant.cs" />
     <Compile Include="Models\People\Person.cs" />
     <Compile Include="Models\People\Shopkeeper.cs" />
     <Compile Include="Models\People\Traveler.cs" />

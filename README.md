@@ -96,7 +96,7 @@ Create an engine that is handling input and output data. You should consider how
       create item armor theArmor whiterun
       create item weapon Axe blackmarsh
       create item armor MineClothes blackmarsh
-      create traveller pesho whiterun
+      create traveler pesho whiterun
       create merchant kiro whiterun
       pesho inventory
       pesho money

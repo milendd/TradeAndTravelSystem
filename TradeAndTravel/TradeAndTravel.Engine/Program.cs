@@ -6,7 +6,7 @@ namespace TradeAndTravel.Engine
     {
         public static void Main()
         {
-            var engine = new Engine(new InteractionManager());
+            var engine = new Engine(new AdvancedInteractionManager());
             var interactionResults = engine.Start();
             Console.WriteLine(interactionResults);
         }

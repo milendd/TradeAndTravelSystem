@@ -46,5 +46,10 @@ namespace TradeAndTravel.Engine.Models
         {
             return this.Id.GetHashCode();
         }
+
+        public override bool Equals(object obj)
+        {
+            return this.Id.Equals((obj as WorldObject).Id);
+        }
     }
 }
